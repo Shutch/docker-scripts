@@ -14,6 +14,6 @@ mkdir -p $HOME/.config/nvim && \
   curl -L -o $HOME/.config/nvim/init.lua \
   https://raw.githubusercontent.com/Shutch/dotfiles/master/nvim-init.lua
 
-nvim --headless -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 echo "alias vim='nvim'" >> $HOME/.bashrc
