@@ -1,7 +1,10 @@
+#!/bin/bash
+
 apt-get update && \
   apt-get install -y \
   curl \
-  git
+  git \
+  pip
 
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb && \
   apt install ./nvim-linux64.deb && \
@@ -13,6 +16,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 mkdir -p $HOME/.config/nvim && \
   curl -L -o $HOME/.config/nvim/init.lua \
   https://raw.githubusercontent.com/Shutch/dotfiles/master/nvim-init.lua
+
+pip install pyright
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
